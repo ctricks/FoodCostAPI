@@ -1,5 +1,5 @@
-# Rest API Authentication Using JWT Tutorial
-This is an implementation of Laravel Rest API Authentication Using JWT. A blog about this can be found here: [Laravel Rest API Authentication Using JWT Tutorial | Fajarwz](https://fajarwz.com/blog/laravel-rest-api-authentication-using-jwt-tutorial).
+# Rest API Authentication Using JWT 
+This is an implementation of Laravel Rest API Authentication Using JWT. 
 
 ## Installation
 
