@@ -27,4 +27,16 @@ Route::middleware('auth:api')->group(function() {
     Route::get('/me', [UserController::class, 'me']);
 });
 
+Route::middleware('auth:api')->group(function() {
+    Route::get('/UserDetails/{id}', [UserController::class, 'UserDetails']);
+});
+
+Route::middleware('auth:api')->group(function() {
+    Route::get('/getAllUsers', [UserController::class, 'All']);
+});
+
+Route::middleware('auth:api')->group(function() {
+    Route::put('/updateUser/{id}', [UserController::class, 'UpdateUser']);
+});
+
 Route::post('/logout', [AuthController::class, 'logout']);

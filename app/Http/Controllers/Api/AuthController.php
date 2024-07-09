@@ -24,15 +24,17 @@ class AuthController extends Controller
         $this->validate($request, [
             'name' => 'required|string|min:2|max:255',
             'email' => 'required|string|email:rfc,dns|max:255|unique:users',
-            'password' => 'required|string|min:6|max:255',
+            'password' => 'required|string|min:6|max:255'            
         ]);
 
         // if the request valid, create user
-
+        //CB-07092024 Adding isAdmin and Remarks Column into database
         $user = $this->user::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
+            'isAdmin' => $request['isAdmin'],
+            'Remarks' => $request['Remarks'],
         ]);
 
         // login the user immediately and generate the token
@@ -92,9 +94,9 @@ class AuthController extends Controller
         {
             return response()->json([
                 'meta' => [
-                    'code' => 404,
-                    'status' => 'success',
-                    'message' => 'Invalid User.Please check',
+                    'code' => 202,
+                    'status' => 'Error',
+                    'message' => 'Error: Invalid User.Please check',
                 ]               
             ]);
         }

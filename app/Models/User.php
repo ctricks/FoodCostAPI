@@ -16,18 +16,23 @@ class User extends Authenticatable implements JWTSubject // implement the JWTSub
      *
      * @var array<int, string>
      */
+    //CD-07092024 For columns/field you want to save value in database
     protected $fillable = [
         'name',
         'email',
         'password',
+        'isAdmin',
+        'Remarks'
     ];
+
+    
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
+    protected $hidden = [        
         'password',
         'remember_token',
     ];
