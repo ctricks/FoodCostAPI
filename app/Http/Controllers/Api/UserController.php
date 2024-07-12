@@ -128,4 +128,40 @@ class UserController extends Controller
             ],
         ]);
     }
+    public function UpdateUserDelete($id)
+    {
+        //$UserData = user::find($request['id']);
+        $UserData = user::find($id);        
+        $UserData->isActive = 0;
+        $UserData->save();
+
+         return response()->json([
+            'meta' => [
+                'code' => 200,
+                'status' => 'success',
+                'message' => 'User deleted successfully!',
+            ],
+            'data' => [                                
+                'Details'=>$UserData
+            ],
+        ]);
+    }
+    public function UserDelete($id)
+    {
+        //$UserData = user::find($request['id']);
+        $UserData = user::find($id);        
+        
+        if ($UserData) {
+            // Delete the record
+            $UserData->delete();
+        }
+
+         return response()->json([
+            'meta' => [
+                'code' => 200,
+                'status' => 'success',
+                'message' => 'User deleted successfully!',
+            ]
+        ]);
+    }
 }
